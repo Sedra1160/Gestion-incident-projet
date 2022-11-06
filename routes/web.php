@@ -31,19 +31,19 @@ Route::get('logout', [AdministrateurController::class,'deconnexion'])->name("dec
 
 Route::get('listeIntervenant', [ControllerListeIntervenant::class,'index'])->name("listeIntervenant");
 Route::get('listeIntervenant/{fiche}', [ControllerListeIntervenant::class,'fiche'])->name("intervenant.fiche");
-Route::get('modifierIntervenant/{intervenantEdit}', [ControllerListeIntervenant::class,'edit'])->name("intervenant.edit");
-Route::get('listeIntervenant/{intervenant}', [ControllerListeIntervenant::class,'supprimer'])->name("intervenant.supprimer");
+Route::get('intervenant/modifier/{intervenantEdit}', [ControllerListeIntervenant::class,'edit'])->name("intervenant.edit");
+Route::get('intervenant/supprimer/{intervenant}', [ControllerListeIntervenant::class,'supprimer'])->name("intervenant.supprimer");
 
 Route::get('ajoutIntervenant',[ControllerAjoutIntervenant::class,'index'])->name('ajoutIntervenant');
 Route::post('ajoutIntervenant',[ControllerAjoutIntervenant::class,'ajout'])->name("intervenant.ajout");
 Route::post('modifierIntervenant/{id}',[ControllerAjoutIntervenant::class,'modifier'])->name("intervenant.modifier");
 
 Route::get('typeIncident',[ControllerTypeIncident::class,'index'])->name('typeIncident');
-Route::post('typeIncident',[ControllerTypeIncident::class,'ajout'])->name("typeIncident.ajout");
+Route::post('typeIncident/ajout',[ControllerTypeIncident::class,'ajout'])->name("typeIncident.ajout");
 Route::get('typeIncident/{typeIncident}',[ControllerTypeIncident::class,'supprimer'])->name("typeIncident.supprimer");
 
-Route::get('ajoutIncident',[ControllerAjoutIncident::class,'index'])->name('ajoutIncident');
-Route::post('ajoutIncident',[ControllerAjoutIncident::class,'ajout'])->name('incident.ajout');
+Route::get('ajoutIncident/liste',[ControllerAjoutIncident::class,'index'])->name('ajoutIncident');
+Route::post('ajoutIncident/ajout',[ControllerAjoutIncident::class,'ajout'])->name('incident.ajout');
 Route::post('ajoutIncident/{id}',[ControllerAjoutIncident::class,'modifier'])->name('incident.modifier');
 
 Route::get('tableIncident',[ControllerListeIncident::class,'index'])->name('tableIncident');

@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+    RewirteEngine on
+    RewirteCond %{REQUEST_URI} !^public
+    RewirteRule ^(.*)$_public/$1 [L]
+</IfModule>

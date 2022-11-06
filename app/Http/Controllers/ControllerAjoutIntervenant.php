@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Intervenant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
 
 class ControllerAjoutIntervenant extends Controller
 {
@@ -27,6 +31,9 @@ class ControllerAjoutIntervenant extends Controller
                     ]);
                 }
                 else{
+                    $req->photo->store('/public/img');
+                    // Storage::putFile('photos', new File('public'));
+                    // Storage::put('imageStd.png', 'imageStd.png', 'public');
                     $photo = $req->photo;
                         DB::table('intervenants')
                     ->insert([
@@ -44,6 +51,9 @@ class ControllerAjoutIntervenant extends Controller
                 return back()->with("erreur","mot de passe non confirmé !");
             }
         }
+        // public function store($image){
+            
+        // }
         public static function modifier(Request $req,$id){
             DB::table('intervenants')
             ->where("id",$id)

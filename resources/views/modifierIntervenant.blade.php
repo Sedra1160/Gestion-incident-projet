@@ -42,13 +42,12 @@
                  </div>
                  <label for="exampleInputEmail1" class="form-label">Photo de profile</label>
                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="photo">
-                    <label class="custom-file-label" for="validatedCustomFile">Choisir photo</label>
-                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" value="{{$intervenant[0]->photo}}" name="photo">
+                    <label class="custom-file-label" for="validatedCustomFile">{{$intervenant[0]->photo}}</label>
                   </div>
                  <div class="form-group">  
                      <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                     <input type="text" required class="form-control" id="exampleInputPassword1" value="{{$intervenant[0]->mdp}}" name="mdp">
+                     <input type="password" required class="form-control" id="exampleInputPassword1" value="{{$intervenant[0]->mdp}}" name="mdp">
                  </div>
                  <button type="submit" class="btn btn-primary">Enregistrer</button>
                  <a href="{{route('listeIntervenant')}}" class="btn btn-danger">Annuler</a>

@@ -16,7 +16,7 @@
                 {{session()->get('success')}}
             </div>
         @endif
-             <form method="post" action="{{route('intervenant.ajout')}}">                
+             <form method="POST" action="{{route('intervenant.ajout')}}" enctype="multipart/form-data">                
                 @csrf
                  <div class="form-group">
                      <label for="exampleInputEmail1" class="form-label">Matricule</label>
@@ -36,8 +36,8 @@
                  </div>
                  <label for="exampleInputEmail1" class="form-label">Photo de profile</label>
                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="photo">
-                    <label class="custom-file-label" for="validatedCustomFile">Choisir photo</label>
+                    <input type="file"  id="photo" name="photo">
+                    {{-- <label class="custom-file-label" for="validatedCustomFile">Choisir photo</label> --}}
                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                   </div>
                  <div class="form-group">  
